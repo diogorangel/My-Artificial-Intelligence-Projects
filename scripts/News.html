@@ -1,0 +1,350 @@
+<!doctype html>
+<html class="no-js" lang="US">
+     <!-- Website Portfólio - Diogo Rangel Dos Santos -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Website Portfólio - Diogo Rangel Dos Santos </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Website Portfólio - Diogo Rangel Dos Santos">
+    <meta name="author" content="Diogo Rangel Dos Santos">
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/favicon.png">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
+    <link rel="stylesheet" href="assets/css/flaticon_omio.css">
+    <link rel="stylesheet" href="assets/css/spacing.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="styles/css/news.css">
+    <script src="assets/js/weather.js" defer></script>
+    <script src="assets/js/cities.js" defer></script>
+    <script src="scripts/js/news-script.js" defer></script>
+    <script src="scripts/js/news.js" defer></script>
+    <script src="scripts/js/wallstreetnews.js" defer></script>
+    <script src="scripts/js/wlastapinews.js" defer></script>
+    <script src="scripts/js/lastmodified.js" defer></script>
+</head>
+
+<body class="wt-magic-cursor grey-bg">
+    <div class="preloader two">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+           <path id="preloaderSvg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div class="preloader-heading">
+            <div class="load-text">
+                <span>L</span>
+                <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+            </div>
+        </div>
+    </div>
+    <div class="back-to-top-wrapper">
+        <button id="back_to_top" type="button" class="back-to-top-btn">
+            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+    <div id="magic-cursor">
+        <div id="ball"></div>
+    </div>
+    <div class="wtoffcanvas-area">
+        <div class="wtoffcanvas">
+            <div class="wtoffcanvas__close-btn">
+                <button class="close-btn"><i class="fal fa-times"></i></button>
+            </div>
+            <div class="wtoffcanvas__logo">
+                <a href="index.html">
+                    <img src="assets/img/logo/ds.jpeg" alt="logo DS">
+                </a>
+            </div>
+            <div class="wtoffcanvas__title">
+                <p>I can be part of your team!</p>
+            </div>
+            <div class="wt-main-menu-mobile d-xl-none"></div>
+            <div class="wtoffcanvas__contact-info">
+                <div class="wtoffcanvas__contact-title">
+                    <h5>Contact me</h5>
+                </div>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <a href="https://www.linkedin.com/in/diogorangels/" target="_blank">LinkedIn</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:diodam.rangel@gmail.com"><span class="__cf_email__">diodam.rangel@gmail.com</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="wtoffcanvas__input">
+                <div class="wtoffcanvas__input-title">
+                    <h4>Get Update</h4>
+                </div>
+                <form action="#">
+                    <div class="p-relative">
+                        <input type="text" placeholder="Enter mail">
+                        <button>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="wtoffcanvas__social">
+                <div class="social-icon">
+                    <a href="https://www.linkedin.com/in/diogorangels/"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/diogorangel"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.facebook.com/diogorangels"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/_diogorangel"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://soundcloud.com/diogorangel"><i class="fa-brands fa-soundcloud"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-overlay"></div>
+    <header class="wt-header-height">
+        <div id="header-sticky" class="wt-header-area wt-header-4-area wt-header-transparent">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div class="wt-header-wrapper">
+
+                            <div class="wt-header-logo">
+                                <a href="index.html"><img src="assets/img/logo/ds.jpeg" alt=""></a>
+                            </div>
+
+                            <div class="wt-header-main-menu d-none d-lg-block">
+                                <nav class="wt-main-menu-content">
+                                    <ul>
+                                        <li class="has-dropdown"><a href="index.html">Home</a>
+                                            <div class="wt-submenu submenu dark has-homemenu">
+                                                <div class="row gx-6 row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-4">
+                                                    <div class="col homemenu">
+                                                        <div class="homemenu-thumb mb-15">
+                                                            <img src="assets/img/menu/home1.jpg" alt="">
+                                                            <div class="homemenu-btn">
+                                                                <a class="menu-btn show-1" href="index.html">Home Page</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="homemenu-content text-center">
+                                                            <h4 class="homemenu-title">
+                                                                <a href="index.html">Home Page</a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="has-dropdown"><a href="portfolio.html">Services</a>
+                                            <ul class="submenu dark wt-submenu">
+                                                <li><a href="portfolio.html">Projects</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown"><a href="https://www.linkedin.com/newsletters/technology-on-my-vision-7267611643126132736/" target="_blank">Blog</a>
+                                            <ul class="submenu dark wt-submenu">
+                                                <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7267611643126132736">Technology on my vision</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="weather.html">Weather</a></li>
+                                        <li><a href="News.html">News</a></li>
+                                        <li><a href="ExchangeRate.html">Exchange Rate</a></li>
+                                     </ul>
+                                </nav>
+                            </div>
+
+                            <div class="wt-header-buton icon_main d-none d-lg-block">
+                                <a class="wt-header-btn" href="https://www.linkedin.com/in/diogorangels/" target="_blank">Inquiries
+                                    <span class="icon_box">
+                                        <i class="icon_first fa-regular fa-arrow-right"></i>
+                                        <i class="icon_second fa-regular fa-arrow-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+
+                            <div class="wt-header-3-toggle d-lg-none">
+                                <button class="wt-menu-bar"><img src="assets/img/icon/menu.svg" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <main>
+               <section class="wt-contact-innerpage-area pt-120 pb-120" style="background-color: #0f0e0e;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="wt-section-title mb-40"><br>Last News</br></h2>
+                            <div id="news-container" class="news-container">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="wt-footer-area fix">
+                <div class="wt-footer-top">
+                    <div class="container">
+                        <div class="row"> 
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="wt-footer-info mt-55 wt_fade_anim" data-delay=".3">
+                                    <div class="wt-footer-logo mb-20">
+                                        <a href="index.html"><img src="assets/img/logo/ds.jpeg" alt=""></a>
+                                    </div>
+                                    <div class="wt-footer-content">
+                                        <p>Diogo Rangel Dos Santos Portifolio</p>
+                                    </div>     
+                                </div>
+                            </div>
+                             <div class="col-xl-2 col-lg-2">
+                                    <div class="wt-footer-info mt-55 wt_fade_anim" data-delay=".3">
+                                        <div class="wt-footer-logo mb-20">
+                                           <a href="https://www.youtube.com/@_diogorangel"><img src="https://img.shields.io/youtube/channel/subscribers/UCt1FtU-lbfQq65yJmpba7Uw" alt="Logo DS"></a>
+                                        </div>
+                                        <div class="wt-footer-content">
+                                            <p>Diogo Rangel Dos Santos</p>
+                                        </div>     
+                                    </div>
+                                </div>
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="wt-footer-widget-top text-center wt_fade_anim" data-delay=".5">
+                                    <div class="wt-section-wrapper">
+                                        <h2 class="wt-section-title wt-text-invert">interested in <br> work together</h2>
+                                    </div>
+                                    <div class="wt-footer-widget-border"></div>
+                                    <div class="wt-footer-widget-mail">
+                                        <h6>email me</h6>
+                                        <a href="mailto:diodam.rangel@gmail.com">diodam.rangel@gmail.com</a>
+                                    </div>
+                                    <div class="wt-footer-right-social">
+                                        <ul>
+                                            <li>
+                                                <a href="https://www.linkedin.com/in/diogorangels/">
+                                                    <span class="active-media">LinkedIn</span>
+                                                    <span class="hover-media"><i class="fa-brands fa-linkedin-in"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/diogorangel">
+                                                    <span class="active-media">GitHub</span>
+                                                    <span class="hover-media"> <i class="fa-brands fa-github"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.facebook.com/diogorangels">
+                                                    <span class="active-media">Facebook</span>
+                                                    <span class="hover-media"><i class="fa-brands fa-facebook-f"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://instagram.com/_diogorangel">
+                                                    <span class="active-media">Instagram</span>
+                                                    <span class="hover-media"><i class="fa-brands fa-instagram"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://soundcloud.com/diogorangel" target="_blank">
+                                                    <span class="active-media">Soundcloud</span>
+                                                    <span class="hover-media"><i class="fa-brands fa-soundcloud"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-1 col-lg-1">
+                                <div class="wt-footer-widget-menu">
+                                    <div class="wt-header-menu mt-40 wt_fade_anim" data-delay=".7">
+                                        <ul>
+                                            <li>
+                                                <a href="#"><img src="assets/img/icon/menu.svg" alt=""> menu</a>
+                                                <ul class="submenu">
+                                                    <li><a href="index.html">Home</a></li>
+                                                    <li><a href="portfolio.html">Projects</a></li>
+                                                    <li><a href="https://www.linkedin.com/in/diogorangels/">About</a></li>
+                                                    <li><a href="contact.html">Contact</a></li>
+                                                    <li><a href="weather.html">Weather</a></li>
+                                                    <li><a href="News.html">News</a></li>
+                                                    <li><a href="ExchangeRate.html">Exchange Rate</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wt-footer-center">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col">
+                                <div class="wt-about-bottom-content text-center">
+                                    <h2 class="wt-about-title wt-footer-2-animated-title">Diogo Rangel Dos Santos</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wt-footer-bottom">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <div class="wt-footer-copyright text-center">
+                                     <p>Last Modification: <span id="last-modified"></span></p>
+                                    <p class="wt-footer-copyright-pagaraph">Copyright © 2025 <a href="https://www.linkedin.com/in/diogorangels/">Diogo Rangel</a>. All Rights Reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            </div>
+    </div>
+    <script src="scripts/js/lastmodified.js" defer></script>
+    <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/waypoints.js"></script>
+    <script src="assets/js/bootstrap-bundle.js"></script>
+    <script src="assets/js/gsap/gsap.js"></script>
+    <script src="assets/js/gsap/gsap-scroll-to-plugin.js"></script>
+    <script src="assets/js/gsap/gsap-scroll-smoother.js"></script>
+    <script src="assets/js/gsap/gsap-scroll-trigger.js"></script>
+    <script src="assets/js/gsap/gsap-split-text.js"></script>
+    <script src="assets/js/chroma.min.js"></script>
+    <script src='assets/js/scroll-magic.js'></script>
+    <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/swiper-bundle.js"></script>
+    <script src="assets/js/text-slide.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/range-slider.js"></script>
+    <script src="assets/js/magnific-popup.js"></script>
+    <script src="assets/js/nice-select.js"></script>
+    <script src="assets/js/purecounter.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/vanilla-tilt.min.js"></script>
+    <script src="assets/js/isotope-pkgd.js"></script>
+    <script src="assets/js/imagesloaded-pkgd.js"></script>
+    <script src="assets/js/ajax-form.js"></script>
+    <script src="assets/js/slider-active.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/wt-cursor.js"></script>
+</body>
+
+</html>
