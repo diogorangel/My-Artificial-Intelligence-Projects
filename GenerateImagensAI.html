@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Gerador de Imagem - Diogo Rangel Dos Santos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Website Portfólio - Diogo Rangel Dos Santos">
+    <meta name="author" content="Diogo Rangel Dos Santos">
+    <script src="scripts/generate-images.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="styles/GenerateImagesAI.css">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 flex flex-col min-h-screen">
+    <header class="bg-white dark:bg-gray-800 shadow-md w-full px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="#" class="font-bold text-2xl text-gray-800 dark:text-white">Diogo Rangel Dos Santos</a>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-gray-600 dark:text-gray-300">
+                <a href="GenerateImagensAI.html" class="text-blue-600 font-bold dark:text-blue-400">Generate IA Imagens</a>
+                <a href="EnginnerAI.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Dev QA Page</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="themeToggle" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                    <svg id="themeIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                </button>
+                <a href="https://www.linkedin.com/in/diogorangels/" class="hidden md:block px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors" target="_blank">Inquiries</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <section class="card-bg-dark dark:bg-white w-full max-w-2xl text-center rounded-2xl shadow-xl p-8">
+            <div>
+                <h2 class="text-3xl font-bold text-white dark:text-gray-800 mb-6">Gerador de Imagem IA</h2>
+                <p class="text-gray-300 dark:text-gray-600 mb-6">
+                    Digite sua descrição e clique em "Gerar Imagem" para criar uma imagem personalizada.
+                </p>
+
+                <div class="mb-4 w-full">
+                    <input type="text" id="imagePrompt" placeholder="Escreva o que você quer gerar..." 
+                           class="w-full p-3 border border-gray-700 dark:border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900 dark:bg-white text-white dark:text-gray-800">
+                </div>
+                
+                <button id="generateBtn"
+                    class="w-full sm:w-auto px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold shadow-md hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Gerar Imagem
+                </button>
+
+                <div id="messageBox" class="hidden mt-4 px-4 py-3 rounded-xl relative" role="alert">
+                    <span id="messageText" class="block sm:inline"></span>
+                </div>
+
+                <div id="loading" class="mt-8 hidden">
+                    <div class="flex items-center justify-center">
+                        <svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span class="text-gray-300 dark:text-gray-600 font-medium">Gerando imagem...</span>
+                    </div>
+                </div>
+
+                <div id="imageContainer" class="mt-8 hidden">
+                    <img id="generatedImage" src="" alt="Imagem gerada" class="w-full h-auto rounded-xl shadow-md border-2 border-gray-700 dark:border-gray-300">
+                    <a id="downloadBtn" href="#" download="imagem-ia.png" class="mt-4 inline-block px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        Baixar Imagem
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-gray-950 text-white py-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Interessado em trabalhar junto?</h2>
+            <div class="my-4 h-1 bg-gray-600 w-24 mx-auto rounded-full"></div>
+            <h6 class="text-gray-400">me mande um e-mail</h6>
+            <a href="mailto:diodam.rangel@gmail.com" class="text-blue-400 hover:underline">diodam.rangel@gmail.com</a>
+            
+            <div class="flex justify-center space-x-4 mt-6">
+                <a href="https://www.linkedin.com/in/diogorangels/" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors">LinkedIn</a>
+                <a href="https://github.com/diogorangel" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors">GitHub</a>
+                <a href="https://www.facebook.com/diogorangels" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors">Facebook</a>
+                <a href="https://instagram.com/_diogorangel" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors">Instagram</a>
+            </div>
+            <p class="mt-8 text-gray-500">Copyright © 2025 Diogo Rangel. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+ /* Importa a fonte Inter para consistência */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+    /* Define a fonte Inter como padrão */
+    body {
+        font-family: 'Inter', sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Classe para o fundo da seção principal no modo escuro */
+        .card-bg-dark {
+        background-color: #0f0e0e; /* Mantendo o seu background escuro original */
+    }
