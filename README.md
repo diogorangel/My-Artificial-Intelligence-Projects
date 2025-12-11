@@ -3,6 +3,8 @@
 ## 🌐 Author : Diogo Rangel (@_diogorangel)
 ## 🌐 A Web Portfolio powered by HTML, CSS, JavaScript & AI (GPT + Gemini)
 
+Link para acessar o site no ar : https://diogorangel.github.io/My-Artificial-Intelligence-Projects/
+
 Este projeto é um portfólio web interativo criado para apresentar projetos relacionados a Inteligência Artificial, utilizando tecnologias simples (HTML, CSS e JavaScript) combinadas com APIs avançadas como OpenAI GPT e Google Gemini.
 Funciona localmente e também ao vivo pelo GitHub Pages, permitindo demonstrar IA diretamente no navegador.
 ```bash
@@ -148,7 +150,8 @@ Criar um portfólio profissional e interativo
 
 📄 Licença
 
-Este projeto pode usar a licença que você desejar. Sugestão: MIT License.
+Diogo Rangel Dos Santos
+Copyright © 2025 Diogo Rangel Dos Santos. All Rights Reserved.
 
 💬 Contato
 
