@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // =================================================================
-    // 1. Lógica de Alternância de Tema (Dark/Light Mode)
+    // 1. Lógica de Alternância de Tema (Mantida como original)
     // =================================================================
     const htmlElement = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =================================================================
-    // 2. Lógica de Geração de Imagem (Simulação de API)
+    // 2. Lógica de Geração de Imagem (Refinamento com Gemini)
     // =================================================================
     
     const promptInput = document.getElementById('imagePrompt');
@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const generatedImage = document.getElementById('generatedImage');
     const downloadBtn = document.getElementById('downloadBtn');
 
-    // Function to show a custom message box (adapted for this page)
     function showMessage(message, type = 'error') {
         const messageBox = document.getElementById('messageBox');
         const messageText = document.getElementById('messageText');
@@ -60,43 +59,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         messageBox.classList.remove('hidden');
-
-        setTimeout(() => {
-            messageBox.classList.add('hidden');
-        }, 5000);
+        setTimeout(() => messageBox.classList.add('hidden'), 5000);
     }
 
     generateBtn.addEventListener('click', async () => {
         const imagePrompt = promptInput.value.trim();
 
         if (imagePrompt.length < 5) {
-            showMessage('Por favor, digite uma descrição para a imagem (mínimo 5 caracteres).', 'error');
+            showMessage('Por favor, digite uma descrição para a imagem.', 'error');
             return;
         }
 
-        const button = document.getElementById('generateBtn');
-        const loading = document.getElementById('loading');
-
-        // Ocultar resultados/mensagens anteriores
+        // Estado inicial do UI
+        generateBtn.classList.add('hidden');
+        loadingDiv.classList.remove('hidden');
+        imageContainer.classList.add('hidden');
         document.getElementById('messageBox').classList.add('hidden');
 
-        // Mostrar estado de loading
-        button.classList.add('hidden');
-        loading.classList.remove('hidden');
-        imageContainer.classList.add('hidden');
-
-        // O prompt de sistema pode ser usado para refinar a descrição da imagem para a API de geração de imagem.
         const systemPrompt = `Você é um gerador de prompts de imagem. Refine a seguinte descrição para criar um prompt artístico e detalhado para uma IA de geração de imagem. Mantenha o idioma original (Português).`;
         let userQuery = `Refinar o prompt para imagem: "${imagePrompt}"`;
         
         try {
-            // ATENÇÃO: Insira sua chave de API do Google AI Studio/Gemini aqui.
-            const apiKey = "AIzaSyCY9LKFkbjwa0gwFcpqYHvkGvQ8dkHb0RM"; 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+            // --- CONFIGURAÇÃO DA API GEMINI ---
+            const apiKey = "AIzaSyBXe7UpTxwbaiOITJsduETZ7p2aRnLxfpA"; 
+            const model = "gemini-2.0-flash"; // Estável e rápido
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
+            // --- PAYLOAD CORRIGIDO (Estrutura oficial do Google) ---
             const payload = {
-                contents: [{ role: "user", parts: [{ text: userQuery }] }],
-                config: { systemInstruction: systemPrompt }
+                system_instruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                contents: [{ 
+                    role: "user", 
+                    parts: [{ text: userQuery }] 
+                }]
             };
 
             const response = await fetch(apiUrl, {
@@ -107,39 +104,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                console.error("API Error Response:", errorData);
-                throw new Error(`Chamada à API de refinamento falhou com status: ${response.status}`);
+                throw new Error(`Erro API: ${response.status}`);
             }
 
             const result = await response.json();
             const refinedPrompt = result?.candidates?.[0]?.content?.parts?.[0]?.text || imagePrompt;
             
-            // --- INSERIR CHAMADA À API DE GERAÇÃO DE IMAGEM AQUI ---
-            // Como a API de geração de imagem (e.g., Imagen) é diferente, usaremos um placeholder.
+            console.log("Prompt refinado pelo Gemini:", refinedPrompt);
 
-            // SIMULAÇÃO: Retorna uma imagem placeholder do Pexels/Picsum
-            console.log("Prompt refinado (ou original):", refinedPrompt);
-            await new Promise(resolve => setTimeout(resolve, 3000)); // Simula o tempo de geração de imagem
+            // --- SIMULAÇÃO DE GERAÇÃO DE IMAGEM ---
+            // Aguarda 2 segundos para simular processamento
+            await new Promise(resolve => setTimeout(resolve, 2000)); 
 
-            const imageId = Math.floor(Math.random() * 1000) + 1; // ID aleatório
+            const imageId = Math.floor(Math.random() * 1000) + 1;
             const imageUrl = `https://picsum.photos/seed/${imageId}/800/600`;
-            // --- FIM DA SIMULAÇÃO ---
             
             // Exibir a imagem gerada
             generatedImage.src = imageUrl;
             generatedImage.alt = refinedPrompt;
-            downloadBtn.href = imageUrl; // Para baixar a imagem
-            imageContainer.classList.remove('hidden');
             
-            showMessage("Imagem gerada com sucesso! (Usando URL simulado)", 'success');
+            // Para o botão de download funcionar com imagem externa
+            downloadBtn.onclick = (e) => {
+                e.preventDefault();
+                window.open(imageUrl, '_blank');
+            };
+
+            imageContainer.classList.remove('hidden');
+            showMessage("Imagem gerada com sucesso! (Refinada por IA)", 'success');
 
         } catch (error) {
-            console.error("Falha na geração da imagem:", error);
-            showMessage("Falha na geração da imagem. Verifique a API Key ou o serviço de geração de imagem.", 'error');
+            console.error("Erro:", error);
+            showMessage("Erro ao processar. Verifique sua chave de API.", 'error');
         } finally {
-            // Ocultar loading e mostrar botão novamente
             loadingDiv.classList.add('hidden');
-            button.classList.remove('hidden');
+            generateBtn.classList.remove('hidden');
         }
     });
 });

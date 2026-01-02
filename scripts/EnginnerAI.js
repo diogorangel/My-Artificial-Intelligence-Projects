@@ -89,35 +89,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let userQuery = `Gerar um cenário de teste para o seguinte cenário: "${scenarioPrompt}". Tipo de teste: ${testType}. Linguagem/Formato: ${language}.`;
 
-        try {
-            // ATENÇÃO: Insira sua chave de API do Google AI Studio/Gemini aqui.
-            const apiKey = "AIzaSyCY9LKFkbjwa0gwFcpqYHvkGvQ8dkHb0RM"; // Sua chave de API deve ser inserida aquiqhttps://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+       try {
+        // 1. Defina sua chave e o modelo (recomendo gemini-1.5-flash por ser rápido e gratuito no limite da cota)
+        const apiKey = "AIzaSyBXe7UpTxwbaiOITJsduETZ7p2aRnLxfpA";
+        const model = "gemini-2.0-flash"; // ou "gemini-1.5-pro"
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
-            const payload = {
-                contents: [{ role: "user", parts: [{ text: userQuery }] }],
-                config: { systemInstruction: systemPrompt }
-            };
+        // 2. A estrutura correta para enviar Instruções de Sistema e o Prompt do Usuário
+        const payload = {
+            system_instruction: {
+                parts: [{ text: systemPrompt }]
+            },
+            contents: [
+                {
+                    role: "user",
+                    parts: [{ text: userQuery }]
+                }
+            ]
+        };
 
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.error("API Error Response:", errorData);
-                throw new Error(`Chamada à API falhou com status: ${response.status}`);
-            }
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error("API Error Response:", errorData);
+            throw new Error(`Chamada à API falhou com status: ${response.status}`);
+        }
 
             const result = await response.json();
             const generatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
 
             if (generatedText) {
-                testResult.textContent = generatedText;
-                resultsContainer.classList.remove('hidden');
-                showMessage("Cenário de teste gerado com sucesso!", 'success');
+            testResult.innerText = generatedText; 
+            
+            // Se quiser que o código pareça código, adicione uma classe de fonte mono
+            testResult.style.fontFamily = 'monospace';
+            testResult.style.whiteSpace = 'pre-wrap'; // Preserva espaços e quebras
+
+            resultsContainer.classList.remove('hidden');
+            showMessage("Cenário de teste gerado com sucesso!", 'success');
             } else {
                 throw new Error("Nenhum conteúdo recebido da API. Verifique o prompt ou a resposta da API.");
             }
